@@ -1,0 +1,19 @@
+.disegna{
+	
+	border:1px solid blue;
+	height:200px
+	
+}
+
+
+.navbar-brand img
+{
+	width:16%
+	
+}
+
+
+.bg-body-tertiary {
+   
+    background-color: red!important;
+}

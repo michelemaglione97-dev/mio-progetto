@@ -1,0 +1,189 @@
+.navbar-brand img
+{
+	width:110px
+	
+}
+
+.navbar-brand img:hover {
+    transform: scale(1.05);
+}
+
+
+.navbar-nav .nav-link, .navbar-nav .btn {
+    color: #ffffff !important;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin:  10px;
+    border: none !important; 
+    transition: color 0.3s ease;
+}
+.navbar-nav .nav-link:hover, .navbar-nav .btn:hover {
+    color: #FF6600 !important; 
+}
+.navbar {
+    background-color: #000000 !important; 
+    padding: 0.8rem 2rem;
+    border-bottom: 3px solid #FF6600; 
+}
+.nav-item .active {
+    border-bottom: 2px solid #FF6600 !important;
+    border-radius: 0;
+}
+
+.social-icon {
+    font-size: 1.8rem; 
+    color: white; 
+    transition: color 0.3s ease, transform 0.3s ease; 
+}
+
+
+.social-icon:hover {
+    color: #FF6600; 
+    transform: scale(1.2); 
+    text-shadow: 0 0 15px rgba(255, 102, 0, 0.7); 
+}
+
+
+.input-group .btn {
+    background-color: white;
+    color: black;
+    font-weight: bold;
+    border: none;
+    transition: all 0.3s ease;
+}
+
+.input-group .btn:hover {
+    background-color: #FF6600 !important; 
+    color: white !important;
+    box-shadow: 0 0 10px rgba(255, 102, 0, 0.5); 
+}
+
+
+.input-group .form-control {
+    border: none !important;
+    box-shadow: none !important; 
+}
+
+footer a {
+    text-decoration: none !important;
+    color: #ffffff !important; 
+    transition: color 0.3s ease !important;
+}
+
+
+footer a:hover {
+    color: #FFD166 !important; 
+    text-decoration: underline !important;
+}
+
+
+
+iframe:hover {
+    
+    border: 2px solid #FF8C00;
+    box-shadow: 0 0 20px 5px rgba(255, 140, 0, 0.7);
+   
+}
+
+
+body {
+    background-color: #212121 !important;
+}
+
+.registration-card {
+    background-color: #ffffff;
+    border-top: 6px solid #ff6600 !important;
+    border-radius: 12px;
+}
+
+.custom-bootstrap-label {
+    font-size: 0.75rem;
+    font-weight: 800;
+    color: #4a0a0a;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+}
+
+
+.h-input, .form-control, .form-select, .border-orange-fix {
+    border: 1px solid #ff6600 !important;
+}
+
+
+.orange-group .form-control {
+    border: 1px solid #ff6600 !important;
+    position: relative;
+    z-index: 1;
+}
+
+.orange-group .form-control:focus {
+    z-index: 3;
+}
+
+
+.input-cf { flex: 4 !important; }
+.input-comune { flex: 2 !important; }
+
+
+.orange-group .form-control + .form-control {
+    margin-left: -1px; 
+}
+
+.btn-orange-border {
+    border: 1px solid #ff6600 !important;
+    border-left: none !important;
+}
+
+.btn-dark-red {
+    background-color: #4a0a0a !important;
+    color: white !important;
+    border: none;
+}
+
+.btn-dark-red:hover {
+    background-color: #ff6600 !important;
+}
+
+
+.was-validated .form-control:invalid {
+    border-color: #dc3545 !important;
+    box-shadow: none !important;
+}
+.was-validated .form-control:valid {
+    border-color: #198754 !important;
+}
+.border-orange-fix {
+    border: 1px solid #ff6600 !important;
+    background-color: white;
+    color: #4a0a0a;
+}
+
+.border-orange-fix:hover {
+    background-color: #fff5ed;
+}
+
+@media (min-width: 768px) {
+    .col-md-3 {
+        flex: 0 0 auto;
+        margin-top: 0px !important; 
+    }
+}
+
+@media (max-width: 767px) {
+    .col-3.col-md-3 button {
+        margin-top: 24px; /* Simula l'altezza della label mancante */
+    }
+}
+
+.row.align-items-end {
+    align-items: flex-start !important; /* Forza l'allineamento in alto */
+}
+
+#validationServerData::-webkit-calendar-picker-indicator {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23ff6600" class="bi bi-calendar-event" viewBox="0 0 16 16"><path d="M11 6.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1z"/><path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z"/></svg>');
+    cursor: pointer;
+    transform: scale(1.3);
+}
+
+
+

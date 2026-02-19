@@ -1,0 +1,234 @@
+<html><head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.rtl.min.css">
+	<link rel="stylesheet" href="css/style2.css">
+ <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <title>Registrazione Moto</title>
+  </head>
+  <body>
+    
+	
+	
+	<div class="container">
+	
+	
+	
+	<div class="row">
+	<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">
+		<img src="https://purepng.com/public/uploads/medium/purepng.com-harley-davidson-logoharley-davidsonmotorcycle-manufacturermotorcyclemotor-bikesharley-davidson-logos-1701527485958rauyu.png">
+	</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="btn  active" aria-current="page" href="file:///C:/Users/miral/Desktop/MICHELE/CORSO%20PROGRAMMAZIONE/FRONTEND/bootstrap-5.3.8-dist/progetto.html">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="btn " href="#">Motorbikes</a>
+        </li>
+        <li class="nav-item">
+          <a class="btn " href="#">Registrati</a>
+        </li>
+        <li class="nav-item">
+          <a class="btn " aria-disabled="true">Login</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+	</div>
+	
+	<div class="container my-5">
+    <div class="card p-4 shadow-lg border-0 registration-card">
+        <h4 class="mb-4 fw-bold text-uppercase text-center" style="color: #4a0a0a;">Registrazione Utente</h4>
+        
+        <form name="reg" action="#" id="registrationForm" class="row g-3 needs-validation" novalidate>
+            
+            <div class="col-12 col-lg-6">
+                <label for="validationServer01" class="form-label custom-bootstrap-label">NOME</label>
+                <input type="text" name="nome"  onblur="resetCF(); verificaCampo(this)" class="form-control h-input" id="validationServer01" placeholder="Inserisci il nome" required>
+                <div class="valid-feedback">Valore valido!</div>
+                <div class="invalid-feedback">Valore non valido (3-20 lettere)!</div>
+            </div>
+
+            <div class="col-12 col-lg-6">
+                <label for="validationServer02" class="form-label custom-bootstrap-label">COGNOME</label>
+                <input type="text" name="cognome" onblur="resetCF(); verificaCampo(this)" class="form-control h-input" id="validationServer02" placeholder="Inserisci il cognome" required>
+               <div class="valid-feedback">Valore valido!</div>
+                <div class="invalid-feedback">Valore non valido (3-20 lettere)!</div>
+            </div>
+
+        <div class="col-12 col-lg-9"> 
+    <div class="row g-2 align-items-end">
+	<div class="col-5 col-md-5 position-relative">
+            <label class="form-label custom-bootstrap-label">CODICE FISCALE</label>
+            <input type="text" name="cf" onblur="verificaCF()" maxlength="16" class="form-control h-input" id="validationServerCF" placeholder="Codice Fiscale" required>
+            <div class="valid-feedback">CF valido!</div>
+            <div class="invalid-feedback">CF non valido!</div>
+        </div>
+
+        <div class="col-4 col-md-4 position-relative">
+           <label for="comuneInput"  class="form-label custom-bootstrap-label">COMUNE DI NASCITA</label>
+    <input list="listaComuni" id="comuneInput" oninput="resetCF(); validaEAssocia(this)" class="form-select h-input" placeholder="Inizia a scrivere..." required>
+    
+    <datalist id="listaComuni"></datalist>
+    
+    <div class="invalid-feedback">Campo obbligatorio!</div>
+</div>
+
+        <div class="col-3 col-md-3">
+            <label class="form-label d-none d-md-block">&nbsp;</label> 
+            <button class="btn btn-dark-red btn-orange-border w-100 fw-bold" style="height: 38px;" type="button" onclick="generaCF()">GENERA</button>
+        </div>
+        
+    </div>
+</div>
+
+<div class="col-12 col-lg-3">
+    <label for="validationServer04" class="form-label custom-bootstrap-label">NAZIONE</label>
+    <select name="nazione" onchange="verificaSelect(this)" class="form-select h-input" id="nazioneSelect"  required>
+        <option selected disabled value="">Scegli...</option> 
+        <option value="Italia">Italia</option>
+        <option value="USA">USA</option>
+		<option value="Spagna">Spagna</option>
+    </select>
+    <div class="invalid-feedback">Devi selezionare una nazione!</div>
+</div>
+			
+		<div class="col-12 col-lg-6">
+    <label class="form-label custom-bootstrap-label">SESSO</label>
+    <div id="sessoContainer" class="d-flex h-input align-items-center ps-3 bg-white border-orange-fix" style="height: 38px; border: 1px solid #ff6600; border-radius: 5px;">
+        <div class="form-check form-check-inline mb-0">
+            <input class="form-check-input" type="radio" name="sesso" id="m" value="M" onclick="resetCF(); verificaSesso()" required>
+            <label class="form-check-label" for="m">M</label>
+        </div>
+        <div class="form-check form-check-inline mb-0">
+            <input class="form-check-input" type="radio" name="sesso" id="f" value="F" onclick="resetCF(); verificaSesso()">
+            <label class="form-check-label" for="f">F</label>
+        </div>
+    </div>
+    <div class="invalid-feedback">Seleziona il sesso!</div>
+</div>
+
+<div class="col-12 col-lg-6">
+    <label for="validationServerData" class="form-label custom-bootstrap-label">DATA DI NASCITA</label>
+    <input type="date" name="dataNascita" onblur="verificaData(); resetCF()" class="form-control h-input" id="validationServerData" required>
+    <div class="invalid-feedback">Inserire data di nascita(min 18 anni)!</div>
+</div>
+
+            <div class="col-12 col-lg-6">
+                <label for="validationServerUsername" class="form-label custom-bootstrap-label">USERNAME</label>
+                <input type="text" name="username" onblur="verificaUserPassw(this)" class="form-control h-input" id="validationServerUsername" placeholder="Username" required>
+                <div class="invalid-feedback">* Lunghezza: 8–10 caratteri * Almeno:
+  * 1 lettera minuscola
+  * 1 lettera maiuscola
+  * 2 numeri
+  * 2 caratteri speciali tra: ? @ _ -
+</div>
+            </div>
+            <div class="col-12 col-lg-6">
+                <label for="validationServerEmail" class="form-label custom-bootstrap-label">EMAIL</label>
+                <input type="email" name="email"   onblur="verificaEmail(this)" class="form-control h-input" id="validationServerEmail" placeholder="email@esempio.it" required>
+                <div class="invalid-feedback">Email non valida(email@esempio.it)!</div>
+            </div>
+
+            <div class="col-12 col-lg-6">
+                <label for="validationServerPass" class="form-label custom-bootstrap-label">PASSWORD</label>
+                <input type="password" name="pass" onblur="verificaUserPassw(this)" class="form-control h-input" id="validationServerPass" placeholder="Password" required>
+                <button class="btn btn-outline-secondary border-orange-fix" type="button" onclick="togglePassword('validationServerPass', this)">
+            <i class="bi bi-eye"></i>
+        </button>
+                <div class="invalid-feedback">* Lunghezza: 8–10 caratteri * Almeno:
+  * 1 lettera minuscola
+  * 1 lettera maiuscola
+  * 2 numeri
+  * 2 caratteri speciali tra: ? @ _ -</div>
+            </div>
+            <div class="col-12 col-lg-6">
+    <label for="validationServerPass2" class="form-label custom-bootstrap-label">CONFERMA PASSWORD</label>
+    <input type="password" name="confermaPass" onblur="verificapassw()" class="form-control h-input" id="validationServerPass2" placeholder="Ripeti Password" required>
+   <button class="btn btn-outline-secondary border-orange-fix" type="button" onclick="togglePassword('validationServerPass2', this)">
+            <i class="bi bi-eye"></i>
+        </button>
+   <div class="invalid-feedback">Le password non coincidono o il campo è vuoto.</div>
+</div>
+
+            <div class="col-12 d-flex gap-2 mt-4">
+                <button class="btn btn-dark-red flex-grow-1 py-2 fw-bold"  onclick="return verificaTutto()" type="submit">REGISTRATI</button>
+                <button class="btn btn-outline-secondary px-4 fw-bold" onclick="puliscitutto()" type="reset" id="btnReset">ANNULLA</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+		<footer class="container-fluid py-4 mt-5 text-white" style="background-color: #3d0a0a;">
+  <div class="container text-center">
+    <div class="row align-items-center g-4">
+      
+      <div class="col-12 col-lg-4">
+        <div class="d-flex justify-content-center gap-3">
+          <a href="#" class="social-icon">
+            <i class="bi bi-facebook"></i>
+          </a>
+          <a href="#" class="social-icon">
+            <i class="bi bi-twitter"></i>
+          </a>
+          <a href="#" class="social-icon">
+            <i class="bi bi-instagram"></i>
+          </a>
+          <a href="#" class="social-icon">
+            <i class="bi bi-youtube"></i>
+          </a>
+        </div>
+      </div>
+
+      <div class="col-12 col-lg-4">
+        <p class="mb-2 fw-bold">NEWSLETTER</p>
+        <div class="input-group mb-3 mx-auto" style="max-width: 280px;">
+          <input type="text" class="form-control" placeholder="Email">
+          <button class="btn btn-light" type="button">CLICCA</button>
+        </div>
+      </div>
+
+      <div class="col-12 col-lg-4 ">
+        <a><p class="mb-1 small">Via dei fiori 11 Napoli(NA), 80147</p></a>
+        <p class="mb-0 small opacity-50">Harley Davidson Copyright 2018</p>
+      </div>
+
+    </div>
+  </div>
+</footer>
+		
+		
+
+
+
+
+
+
+
+
+
+	
+		
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="js/bootstrap.bundle.min.js"> </script>
+    <script src="js/style2.js"> </script>
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js" integrity="sha384-G/EV+4j2dNv+tEPo3++6LCgdCROaejBqfUeNjuKAiuXbjrxilcCdDz6ZAVfHWe1Y" crossorigin="anonymous"></script>
+    -->
+  
+</body></html>
