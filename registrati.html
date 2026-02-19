@@ -68,14 +68,14 @@
 
         <div class="col-12 col-lg-9"> 
     <div class="row g-2 align-items-end">
-	<div class="col-5 col-md-5 position-relative">
+	<div class="col-12 col-md-5 position-relative">
             <label class="form-label custom-bootstrap-label">CODICE FISCALE</label>
             <input type="text" name="cf" onblur="verificaCF()" maxlength="16" class="form-control h-input" id="validationServerCF" placeholder="Codice Fiscale" required>
             <div class="valid-feedback">CF valido!</div>
             <div class="invalid-feedback">CF non valido!</div>
         </div>
 
-        <div class="col-4 col-md-4 position-relative">
+        <div class="col-12 col-md-4 position-relative">
            <label for="comuneInput"  class="form-label custom-bootstrap-label">COMUNE DI NASCITA</label>
     <input list="listaComuni" id="comuneInput" oninput="resetCF(); validaEAssocia(this)" class="form-select h-input" placeholder="Inizia a scrivere..." required>
     
@@ -84,7 +84,7 @@
     <div class="invalid-feedback">Campo obbligatorio!</div>
 </div>
 
-        <div class="col-3 col-md-3">
+        <div class="col-12 col-md-3">
             <label class="form-label d-none d-md-block">&nbsp;</label> 
             <button class="btn btn-dark-red btn-orange-border w-100 fw-bold" style="height: 38px;" type="button" onclick="generaCF()">GENERA</button>
         </div>
@@ -233,4 +233,5 @@
   
 
 </body></html>
+
 
