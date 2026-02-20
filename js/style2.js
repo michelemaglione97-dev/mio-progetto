@@ -380,28 +380,20 @@ function verificaSesso() {
 
 
 function verificaEmail(campo) {
-    let valore = campo.value.trim();
-    let posChiocciola = valore.indexOf("@");
-    let posPunto = valore.lastIndexOf(".");
+    
+    let regEmail = new RegExp("^[^\\s@]+@[^\\s@]+\\.[a-z]{2,}$");
 
-    let caratteriDopoPunto = valore.length - 1 - posPunto;
-
-    if (
-        valore.length > 0 && 
-        valore.length <= 30 && 
-        posChiocciola > 0 && 
-        posPunto > posChiocciola + 1 && 
-        caratteriDopoPunto === 2 
-    ) {
-        campo.classList.add("is-valid");
-        campo.classList.remove("is-invalid");
-        return true;
-    } else {
+    if (!regEmail.test(campo.value)) {
         campo.classList.add("is-invalid");
         campo.classList.remove("is-valid");
         return false;
+    } else {
+        campo.classList.add("is-valid");
+        campo.classList.remove("is-invalid");
+        return true;
     }
 }
+
 
 function verificaUsername(campo) {
     
@@ -525,3 +517,4 @@ function verificaTutto() {
   
     return false;
 }
+
