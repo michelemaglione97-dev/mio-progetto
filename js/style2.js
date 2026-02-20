@@ -91,7 +91,7 @@ window.addEventListener('resize', gestisciFooter);
 
 function verificaCampo(campo) { //posso usarla per nome e cognome
    
-    let reg = new RegExp("^[a-zA-Z\\s]{3,25}$");
+    let reg = new RegExp("^[a-zA-Z\\s]{3,20}$");
     
     if (!reg.test(campo.value)) {
         campo.classList.add("is-invalid");
@@ -179,7 +179,7 @@ function generaCF() {
 
     // 2. IL MURO DI CONTROLLO (Validazione)
     if (!nome || !cognome || !dataNascita || (!sessoM && !sessoF) || !codiceBelfiore) {
-        alert("⚠️ Impossibile generare: inserire tutti i campi necessari!");
+        alert(" Impossibile generare: inserire tutti i campi necessari!");
         return; // Blocca l'esecuzione: la funzione finisce qui e non calcola nulla
     }
 
@@ -339,7 +339,7 @@ function validaEAssocia(input) {
         campoNazione.value = nazioneTrovata; // Seleziona la nazione corretta
         campoNazione.classList.add("is-valid");
 		// serve a "ricordare" la nazione legata al comune
-          input.setAttribute('data-nazione-vincolata', nazioneTrovata);
+          input.setAttribute('data-nazione-vincolata', nazioneTrovata);//aggiunge un vincolo nascosto
 
         // SALVATAGGIO SEGRETO: salviamo il codice nell'input per usarlo dopo
         input.setAttribute('data-codice-belfiore', codiceTrovato);
@@ -347,8 +347,8 @@ function validaEAssocia(input) {
     } else {
         // Se non trova nulla o il campo viene svuotato
         input.classList.remove("is-valid");
-        input.removeAttribute('data-codice-belfiore');
-        input.removeAttribute('data-nazione-vincolata');
+        input.removeAttribute('data-codice-belfiore');// rimuove codice nascosto
+        input.removeAttribute('data-nazione-vincolata');//rimuove il vincolo nascosto
         
         // La nazione torna su "Scegli..." e perde il colore
         campoNazione.value = ""; 
@@ -403,10 +403,7 @@ function verificaEmail(campo) {
     }
 }
 
-
-
-
-function verificaUserPassw(campo) {
+function verificaUsername(campo) {
     
     let regUserPassw = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=(.*[0-9]){2})(?=(.*[?@_-]){2})[A-Za-z0-9?@_-]{8,10}$");
 
@@ -421,7 +418,22 @@ function verificaUserPassw(campo) {
     }
 }
 
-function verificapassw() {
+function verificaPassw(campo) {
+    
+    let regUserPassw = new RegExp("^(?=(.*[a-z]){2,})(?=(.*[A-Z]){2,})(?=(.*[0-9]){2,})(?=[^?@_-]*[?@_-][^?@_-]*$)[A-Za-z0-9?@_-]{8,10}$");
+
+    if (!regUserPassw.test(campo.value)) {
+        campo.classList.add("is-invalid");
+        campo.classList.remove("is-valid");
+        return false;
+    } else {
+        campo.classList.add("is-valid");
+        campo.classList.remove("is-invalid");
+        return true;
+    }
+}
+
+function confermapassw() {
     let passw = document.reg.pass;
     let confpassw = document.reg.confermaPass; // Deve corrispondere al 'name' nell'HTML
 
@@ -506,11 +518,10 @@ function verificaTutto() {
     let comOK= verificaComuneObbligatorio();
 	let nazOk=verificaSelect(document.reg.nazione);
 	let sexOK=verificaSesso();
-	let userOK=verificaUserPassw(document.reg.username);
-	let passOK=verificaUserPassw(document.reg.pass);
-	let confpass=verificapassw();
+	let userOK=verificaUsername(document.reg.username);
+	let passOK=verificaPassw(document.reg.pass);
+	let confpass=confermapassw();
 	let dtaOk= verificaData();
   
     return false;
-
 }
