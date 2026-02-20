@@ -397,9 +397,9 @@ function verificaEmail(campo) {
 
 function verificaUsername(campo) {
     
-    let regUserPassw = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=(.*[0-9]){2})(?=(.*[?@_-]){2})[A-Za-z0-9?@_-]{8,10}$");
+    let regUser = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=(.*[0-9]){2})(?=(.*[?@_-]){2})[A-Za-z0-9?@_-]{8,10}$");
 
-    if (!regUserPassw.test(campo.value)) {
+    if (!regUser.test(campo.value)) {
         campo.classList.add("is-invalid");
         campo.classList.remove("is-valid");
         return false;
@@ -412,9 +412,9 @@ function verificaUsername(campo) {
 
 function verificaPassw(campo) {
     
-    let regUserPassw = new RegExp("^(?=(.*[a-z]){2,})(?=(.*[A-Z]){2,})(?=(.*[0-9]){2,})(?=[^?@_-]*[?@_-][^?@_-]*$)[A-Za-z0-9?@_-]{8,10}$");
+    let regPassw = new RegExp("^(?=(.*[a-z]){2,})(?=(.*[A-Z]){2,})(?=(.*[0-9]){2,})(?=[^?@_-]*[?@_-][^?@_-]*$)[A-Za-z0-9?@_-]{8,10}$");
 
-    if (!regUserPassw.test(campo.value)) {
+    if (!regPassw.test(campo.value)) {
         campo.classList.add("is-invalid");
         campo.classList.remove("is-valid");
         return false;
@@ -517,4 +517,5 @@ function verificaTutto() {
   
     return false;
 }
+
 
