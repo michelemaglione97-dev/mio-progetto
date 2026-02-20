@@ -124,7 +124,7 @@
 
             <div class="col-12 col-lg-6">
                 <label for="validationServerUsername" class="form-label custom-bootstrap-label">USERNAME</label>
-                <input type="text" name="username" onblur="verificaUsername(this)" class="form-control h-input" id="validationServerUsername" placeholder="Username" required>
+                <input type="text" name="username" oninput="verificaUsername(this)" class="form-control h-input" id="validationServerUsername" placeholder="Username" required>
                 <div class="invalid-feedback">* Lunghezza: 8–10 caratteri * Almeno:
   * 1 lettera minuscola
   * 1 lettera maiuscola
@@ -134,13 +134,13 @@
             </div>
             <div class="col-12 col-lg-6">
                 <label for="validationServerEmail" class="form-label custom-bootstrap-label">EMAIL</label>
-                <input type="email" name="email"   onblur="verificaEmail(this)" class="form-control h-input" id="validationServerEmail" placeholder="email@esempio.it" required>
+                <input type="email" name="email"  oninput="verificaEmail(this)" class="form-control h-input" id="validationServerEmail" placeholder="email@esempio.it" required>
                 <div class="invalid-feedback">Email non valida(email@esempio.it)!</div>
             </div>
 
             <div class="col-12 col-lg-6">
                 <label for="validationServerPass" class="form-label custom-bootstrap-label">PASSWORD</label>
-                <input type="password" name="pass" onblur="verificaPassw(this)" class="form-control h-input" id="validationServerPass" placeholder="Password" required>
+                <input type="password" name="pass" oninput="verificaPassw(this)" class="form-control h-input" id="validationServerPass" placeholder="Password" required>
                 <button class="btn btn-outline-secondary border-orange-fix" type="button" onclick="togglePassword('validationServerPass', this)">
             <i class="bi bi-eye"></i>
         </button>
@@ -152,7 +152,7 @@
             </div>
             <div class="col-12 col-lg-6">
     <label for="validationServerPass2" class="form-label custom-bootstrap-label">CONFERMA PASSWORD</label>
-    <input type="password" name="confermaPass" onblur="confermapassw()" class="form-control h-input" id="validationServerPass2" placeholder="Ripeti Password" required>
+    <input type="password" name="confermaPass" oninput="confermapassw()" class="form-control h-input" id="validationServerPass2" placeholder="Ripeti Password" required>
    <button class="btn btn-outline-secondary border-orange-fix" type="button" onclick="togglePassword('validationServerPass2', this)">
             <i class="bi bi-eye"></i>
         </button>
@@ -230,5 +230,6 @@
     -->
   
 </body></html>
+
 
 
