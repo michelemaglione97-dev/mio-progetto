@@ -185,5 +185,14 @@ body {
     transform: scale(1.3);
 }
 
+.sticky-top, .navbar {
+    z-index: 1020; /* Lo tiene sopra il carousel */
+    cursor: url('percorso/del/tuo/sole.png'), auto !important;
+}
+
+
+
+
+
 
 
