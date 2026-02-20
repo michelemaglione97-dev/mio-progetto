@@ -43,6 +43,7 @@
 
 
 	
+	
 	<div class="container my-5">
     <div class="card p-4 shadow-lg border-0 registration-card">
         <h4 class="mb-4 fw-bold text-uppercase text-center" style="color: #4a0a0a;">Registrazione Utente</h4>
@@ -51,14 +52,14 @@
             
             <div class="col-12 col-lg-6">
                 <label for="validationServer01" class="form-label custom-bootstrap-label">NOME</label>
-                <input type="text" name="nome"  onblur="resetCF(); verificaCampo(this)" class="form-control h-input" id="validationServer01" placeholder="Inserisci il nome" required>
+                <input type="text" name="nome"  oninput="resetCF(); verificaCampo(this)" class="form-control h-input" id="validationServer01" placeholder="Inserisci il nome" required>
                 <div class="valid-feedback">Valore valido!</div>
                 <div class="invalid-feedback">Valore non valido (3-20 lettere)!</div>
             </div>
 
             <div class="col-12 col-lg-6">
                 <label for="validationServer02" class="form-label custom-bootstrap-label">COGNOME</label>
-                <input type="text" name="cognome" onblur="resetCF(); verificaCampo(this)" class="form-control h-input" id="validationServer02" placeholder="Inserisci il cognome" required>
+                <input type="text" name="cognome" oninput="resetCF(); verificaCampo(this)" class="form-control h-input" id="validationServer02" placeholder="Inserisci il cognome" required>
                <div class="valid-feedback">Valore valido!</div>
                 <div class="invalid-feedback">Valore non valido (3-20 lettere)!</div>
             </div>
@@ -67,7 +68,7 @@
     <div class="row g-2 align-items-end">
 	<div class="col-12 col-md-5 position-relative">
             <label class="form-label custom-bootstrap-label">CODICE FISCALE</label>
-            <input type="text" name="cf" onblur="verificaCF()" maxlength="16" class="form-control h-input" id="validationServerCF" placeholder="Codice Fiscale" required>
+            <input type="text" name="cf" oninput="verificaCF()" maxlength="16" class="form-control h-input" id="validationServerCF" placeholder="Codice Fiscale" required>
             <div class="valid-feedback">CF valido!</div>
             <div class="invalid-feedback">CF non valido!</div>
         </div>
@@ -117,7 +118,7 @@
 
 <div class="col-12 col-lg-6">
     <label for="validationServerData" class="form-label custom-bootstrap-label">DATA DI NASCITA</label>
-    <input type="date" name="dataNascita" onblur="verificaData(); resetCF()" class="form-control h-input" id="validationServerData" required>
+    <input type="date" name="dataNascita" oninput="verificaData(); resetCF()" class="form-control h-input" id="validationServerData" required>
     <div class="invalid-feedback">Inserire data di nascita(min 18 anni)!</div>
 </div>
 
@@ -229,4 +230,5 @@
     -->
   
 </body></html>
+
 
