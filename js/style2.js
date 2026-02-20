@@ -382,19 +382,27 @@ function verificaSesso() {
 function verificaEmail(campo) {
     let valore = campo.value.trim();
     let posChiocciola = valore.indexOf("@");
+    let posPunto = valore.lastIndexOf(".");
 
-    if (valore.length > 0 && valore.length <= 30 && posChiocciola > 0 && posChiocciola < valore.length - 1) {
-        // Se tutte le condizioni sono vere, è valida
+    let caratteriDopoPunto = valore.length - 1 - posPunto;
+
+    if (
+        valore.length > 0 && 
+        valore.length <= 30 && 
+        posChiocciola > 0 && 
+        posPunto > posChiocciola + 1 && 
+        caratteriDopoPunto === 2 
+    ) {
         campo.classList.add("is-valid");
         campo.classList.remove("is-invalid");
         return true;
     } else {
-        // Se manca la @ o non rispetta le regole, è errore
         campo.classList.add("is-invalid");
         campo.classList.remove("is-valid");
         return false;
     }
 }
+
 
 
 
@@ -504,4 +512,5 @@ function verificaTutto() {
 	let dtaOk= verificaData();
   
     return false;
+
 }
