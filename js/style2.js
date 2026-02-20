@@ -164,7 +164,7 @@ function calcolaCarattereControllo(cf) {
 }
 
 let cfGeneratoUfficiale = "";
-
+let isAutomatico = false;
 function generaCF() {
     // 1. RECUPERO DEI DATI DAI CAMPI DEL FORM
     const nome = document.reg.nome.value.trim();
@@ -180,7 +180,7 @@ function generaCF() {
     // 2. IL MURO DI CONTROLLO (Validazione)
     if (!nome || !cognome || !dataNascita || (!sessoM && !sessoF) || !codiceBelfiore) {
         alert(" Impossibile generare: inserire tutti i campi necessari!");
-        return; // Blocca l'esecuzione: la funzione finisce qui e non calcola nulla
+        return; 
     }
 
     // 3. COSTRUZIONE DEL CODICE
@@ -216,7 +216,10 @@ function generaCF() {
 
     // 4. OUTPUT FINALE
 	cfGeneratoUfficiale = cf.toUpperCase();
-    const campoRisultato = document.getElementById('validationServerCF');// Prende il campo di testo del Codice Fiscale, ci scrive dentro il risultato finale tutto in maiuscolo  
+	
+	isAutomatico = true;//cosi mi cancella solo nel reset quando è creato su genera
+    
+	const campoRisultato = document.getElementById('validationServerCF');// Prende il campo di testo del Codice Fiscale, ci scrive dentro il risultato finale tutto in maiuscolo  
 	campoRisultato.value = cfGeneratoUfficiale;
     
     // Richiamo la tua funzione per colorare il campo di verde
@@ -227,14 +230,24 @@ function generaCF() {
 
 function verificaCF() {
     let cf = document.reg.cf;
-    cf.value = cf.value.toUpperCase().trim();
+    cf.value = cf.value.toUpperCase().trim(); //trasforma tutto in maiuscolo
+    
     let regCF = new RegExp("^[A-Z]{6}[0-9]{2}[A-Z][0-9]{2}[A-Z][0-9]{3}[A-Z]$");
-
     let formatoValido = regCF.test(cf.value);
-    // Adesso controlliamo anche che cfGeneratoUfficiale non sia stato svuotato
-    let cfValido = (cfGeneratoUfficiale !== "" && cf.value === cfGeneratoUfficiale);
 
-    if (formatoValido && cfValido) {
+    let esito = false;
+
+    if (formatoValido) {             //se il formato è valido e non è generato va bene!
+        if (cfGeneratoUfficiale === "") {
+            
+            esito = true; 
+        } else {
+         
+            esito = (cf.value === cfGeneratoUfficiale);//altrimenti è uguale al cf generato
+        }
+    }
+
+    if (esito) {
         cf.classList.add("is-valid");
         cf.classList.remove("is-invalid");
         return true;
@@ -245,11 +258,23 @@ function verificaCF() {
     }
 }
 
-function resetCF() { //se cambio valore se ho gia inserito il cf
-    cfGeneratoUfficiale = ""; // Svuota la memoria del codice calcolato
-    verificaCF(); 
+function resetCF() { 
+    if (isAutomatico) {
+        // Se era automatico, i dati non corrispondono più: cancella tutto
+        document.reg.cf.value = "";
+        cfGeneratoUfficiale = "";
+        isAutomatico = false; 
+        
+        let cf = document.reg.cf;
+        cf.classList.remove("is-valid");
+        cf.classList.add("is-invalid");
+    } else {
+       
+        let cf = document.reg.cf;
+        cf.classList.remove("is-valid");
+        cfGeneratoUfficiale = ""; // Svuotiamo comunque la memoria ufficiale
+    }
 }
-
 
 function verificaComuneObbligatorio() {
     let campo = document.getElementById('comuneInput');
@@ -394,7 +419,6 @@ function verificaEmail(campo) {
     }
 }
 
-
 function verificaUsername(campo) {
     
     let regUser = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=(.*[0-9]){2})(?=(.*[?@_-]){2})[A-Za-z0-9?@_-]{8,10}$");
@@ -517,5 +541,3 @@ function verificaTutto() {
   
     return false;
 }
-
-
