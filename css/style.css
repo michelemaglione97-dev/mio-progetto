@@ -32,6 +32,13 @@ background-color: #000000 !important;}
     border-radius: 0;
 }
 
+.sticky-top, .navbar {
+    z-index: 1020; /* Lo tiene sopra il carousel */
+   
+}
+
+
+
 .box-recipiente,.custom-block {
     background-color: #FF6600; 
     border-radius: 12px;      
@@ -234,4 +241,5 @@ iframe:hover {
     border: 2px solid #FF8C00;
     box-shadow: 0 0 20px 5px rgba(255, 140, 0, 0.7);
    
+
 }
